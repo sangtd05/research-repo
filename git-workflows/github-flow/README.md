@@ -19,8 +19,6 @@ Mô hình này cắt bỏ hoàn toàn sự lằng nhằng của nhánh `develop`
 ```mermaid
 gitGraph
   commit id: "Initial commit"
-  branch main
-  checkout main
   commit id: "Set up frontend"
   
   %% Feature Branch

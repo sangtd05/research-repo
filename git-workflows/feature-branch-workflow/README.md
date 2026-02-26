@@ -18,8 +18,6 @@ Feature Branch bọc gọn gẽ công việc, là hạt nhân để các mô hì
 ```mermaid
 gitGraph
   commit id: "Base app"
-  branch main
-  checkout main
   commit id: "System stable"
   
   %% Feature Branch 1 - Isolated Work

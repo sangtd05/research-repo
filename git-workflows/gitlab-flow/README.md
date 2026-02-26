@@ -24,8 +24,6 @@ Mô hình này làm rõ câu hỏi *"Code nào đang chạy ở server nào?"*.
 ```mermaid
 gitGraph
   commit id: "Initial code"
-  branch main
-  checkout main
   commit id: "Base system ready"
   
   %% Team makes features
