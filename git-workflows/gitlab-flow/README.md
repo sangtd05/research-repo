@@ -27,36 +27,36 @@ gitGraph
   commit id: "Base system ready"
   
   %% Team makes features
-  branch feature/dashboard
-  checkout feature/dashboard
+  branch "feature/dashboard"
+  checkout "feature/dashboard"
   commit id: "Build API for dashboard"
   commit id: "Build UI for dashboard"
   checkout main
-  merge feature/dashboard id: "Merge request #1: Dashboard"
+  merge "feature/dashboard" id: "Merge request #1: Dashboard"
   
   %% Auto Deploy to Staging...
   
   %% Move code to Pre-production Environment for client check
-  branch pre-production
-  checkout pre-production
+  branch "pre-production"
+  checkout "pre-production"
   merge main tag: "ready-for-UAT"
   
   %% Client discovers a bug, DEV must fix in MAIN first
   checkout main
-  branch bugfix/dashboard-crash
-  checkout bugfix/dashboard-crash
+  branch "bugfix/dashboard-crash"
+  checkout "bugfix/dashboard-crash"
   commit id: "Fix crash missing data"
   checkout main
-  merge bugfix/dashboard-crash id: "Fix MR #2"
+  merge "bugfix/dashboard-crash" id: "Fix MR #2"
   
   %% Promo to pre-prod again
-  checkout pre-production
+  checkout "pre-production"
   merge main tag: "retry-UAT"
   
   %% Client happy! Promo to Prod!
-  branch production
-  checkout production
-  merge pre-production tag: "Release v3.4.1"
+  branch "production"
+  checkout "production"
+  merge "pre-production" tag: "Release v3.4.1"
 ```
 
 ## 4. Đặc thù và Cách xử lý lệnh Git (Cho Release Driven)

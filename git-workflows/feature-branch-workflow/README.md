@@ -21,25 +21,25 @@ gitGraph
   commit id: "System stable"
   
   %% Feature Branch 1 - Isolated Work
-  branch feature/email-service
-  checkout feature/email-service
+  branch "feature/email-service"
+  checkout "feature/email-service"
   commit id: "Install sendgrid"
   commit id: "Build basic send func"
   
   %% Feature Branch 2 - Complete isolation from feature 1
   checkout main
-  branch feature/user-profile
-  checkout feature/user-profile
+  branch "feature/user-profile"
+  checkout "feature/user-profile"
   commit id: "Add avatar uploader"
   commit id: "Build UI form profile"
   checkout main
-  merge feature/user-profile id: "Merge User Profile (Complete)"
+  merge "feature/user-profile" id: "Merge User Profile (Complete)"
   
   %% Feature 1 lagging behind, must pull updates
-  checkout feature/email-service
+  checkout "feature/email-service"
   commit id: "Attach user email to service"
   checkout main
-  merge feature/email-service id: "Merge Email Service (Complete)"
+  merge "feature/email-service" id: "Merge Email Service (Complete)"
 ```
 
 ## 4. Các lệnh Git cơ bản của Feature Branch
