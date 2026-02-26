@@ -17,29 +17,41 @@ Feature Branch bọc gọn gẽ công việc, là hạt nhân để các mô hì
 
 ```mermaid
 gitGraph
-  commit id: "Base app"
-  commit id: "System stable"
-  
-  %% Feature Branch 1 - Isolated Work
-  branch feature/email-service
-  checkout feature/email-service
-  commit id: "Install sendgrid"
-  commit id: "Build basic send func"
-  
-  %% Feature Branch 2 - Complete isolation from feature 1
-  checkout main
-  branch feature/user-profile
-  checkout feature/user-profile
-  commit id: "Add avatar uploader"
-  commit id: "Build UI form profile"
-  checkout main
-  merge feature/user-profile id: "Merge User Profile (Complete)"
-  
-  %% Feature 1 lagging behind, must pull updates
-  checkout feature/email-service
-  commit id: "Attach user email to service"
-  checkout main
-  merge feature/email-service id: "Merge Email Service (Complete)"
+    commit id: "Initial code"
+    commit id: "Base system ready"
+    
+    %% Team makes features
+    branch feature/dashboard
+    checkout feature/dashboard
+    commit id: "Build API"
+    commit id: "Build UI"
+    
+    checkout main
+    merge feature/dashboard id: "Merge #1: Dashboard"
+    
+    %% Move code to Pre-production
+    branch pre-production
+    checkout pre-production
+    commit id: "Setup staging env"
+    
+    %% Client discovers a bug, DEV fix in MAIN
+    checkout main
+    branch bugfix/dashboard-crash
+    checkout bugfix/dashboard-crash
+    commit id: "Fix crash missing data"
+    
+    checkout main
+    merge bugfix/dashboard-crash id: "Fix MR #2"
+    
+    %% Promo to pre-prod again
+    checkout pre-production
+    merge main tag: "retry-UAT"
+    
+    %% Client happy! Promo to Prod!
+    checkout main
+    branch production
+    checkout production
+    merge pre-production tag: "v1.0-Live"
 ```
 
 ## 4. Các lệnh Git cơ bản của Feature Branch
