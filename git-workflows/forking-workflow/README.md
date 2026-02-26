@@ -1,9 +1,10 @@
 # Forking Workflow
 
 ## 1. Tổng quan
+
 Forking Workflow là quy trình làm việc **đỉnh cao của bảo mật nguồn code**, sinh ra dành riêng cho thế giới **Open Source (Mã nguồn mở)** trên GitHub/GitLab.
 
-Thay vì cho phép 100 người lại ghép code chung vào 1 kho Git công ty (như các mô hình khác: GitHub flow, Gitflow...), Forking Workflow giải quyết bài toán "Anh không tin mày". 
+Thay vì cho phép 100 người lại ghép code chung vào 1 kho Git công ty (như các mô hình khác: GitHub flow, Gitflow...), Forking Workflow giải quyết bài toán "Anh không tin mày".
 Người đóng góp (**Contributor**) KHÔNG CÓ QUYỀN ghi (Push) vào kho Git chính (Official Repo) của dự án. Thay vào đó, họ phải tự **Fork (Vượt cấp nhân bản đĩa/Nhân bản Repo)** toàn bộ dự án về tài khoản cá nhân của họ, sửa trên đó, và "Gửi Đơn Xin" (Pull Request) sang repo gốc.
 
 ## 2. Các điểm cốt lõi
@@ -44,7 +45,8 @@ gitGraph
 
 ## 4. Các lệnh Git cơ bản của Forking Workflow
 
-**1. Khởi tạo môi trường (Sau khi ấn nút Fork trên trang Web)**
+### 1. Khởi tạo môi trường (Sau khi ấn nút Fork trên trang Web)
+
 ```bash
 # Clone CỦA BẠN (Forked repo) về máy tính cá nhân
 git clone https://github.com/ToiLaAi/SieuDuAn.git
@@ -58,7 +60,8 @@ git remote add upstream https://github.com/ChuDuAn/SieuDuAn.git
 git remote -v
 ```
 
-**2. Quá trình làm việc (Đóng góp tính năng)**
+### 2. Quá trình làm việc (Đóng góp tính năng)
+
 ```bash
 # Đồng bộ hoá kho của mình với kho chủ (Đừng bao giờ quên bước này)
 git checkout main
@@ -75,7 +78,8 @@ git commit -m "Bổ sung Giao diện Tối cho Trang chủ"
 git push -u origin feature/dark-theme
 ```
 
-**3. Tạo Pull Request và Đồng bộ**
+### 3. Tạo Pull Request và Đồng bộ
+
 - Vào trang GitHub (Kho của bạn), ấn nút **Compare & Pull Request** và viết thư thuyết phục Chủ dự án cho gộp code.
 - Nếu được gộp thành công, quay về Local xoá nhánh và kéo (pull) từ rễ.
 
@@ -90,14 +94,17 @@ git push origin main
 ## 5. Ưu điểm và Nhược điểm
 
 **Ưu điểm:**
+
 - **An Toàn Tuyệt Đối (Security):** Tích hợp phân quyền vật lý (Physical Repo isolation). Code lỗi, nhảm nhí không bao giờ làm rác kho chính.
 - Mở rộng quy mô đội phản ứng vô hạn (Bất kì người lạ nào trên trái đất cũng có thể tham gia sửa lỗi code cho bạn mà bạn chả cần phải set Permission hay invite account vào Repo chung).
 
 **Nhược điểm:**
+
 - Cấu hình ban đầu khá rối với Dev mới chạm ngõ Git (Phải loay hoay config `origin` vs `upstream`).
 - Rất tốn bộ nhớ kho (Hàng nghìn người fork dự án bằng hàng nghìn cái Repo đầy đủ).
 - Merge conflict (Xung đột) là điều khó tránh khi hàng trăm Contributor làm việc song song hàng năm trời trên hàng ngàn Fork.
 
 ## 6. Khi nào nên áp dụng?
+
 - **Các dự án Open Source thần thánh:** Linux Kernel, ReactJS, VS Code, Kubernetes... đều dùng Forking Workflow.
 - Các công ty phần mềm lớn (Uber, Google) cũng áp dụng mô hình này trong nội bộ công ty để các "Team A" muốn đóng góp bộ thư viện cho "Team B" thì dùng chiến thuật Fork - PR.
