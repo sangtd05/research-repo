@@ -22,25 +22,25 @@ gitGraph
   commit id: "Set up frontend"
   
   %% Feature Branch
-  branch "feature/add-button"
-  checkout "feature/add-button"
+  branch feature/add-button
+  checkout feature/add-button
   commit id: "Create basic button"
   commit id: "Style button with CSS"
   
   %% Open Pull Request (Code review assumed here)
   %% Merging back to main after approval
   checkout main
-  merge "feature/add-button" id: "Merge PR #1: Add Button"
+  merge feature/add-button id: "Merge PR #1: Add Button"
   
   %% CI/CD automatically deploys
   
   %% Quick Bugfix
   checkout main
-  branch "fix/button-color"
-  checkout "fix/button-color"
+  branch fix/button-color
+  checkout fix/button-color
   commit id: "Update button color to match design"
   checkout main
-  merge "fix/button-color" id: "Merge PR #2: Fix color"
+  merge fix/button-color id: "Merge PR #2: Fix color"
 ```
 
 ## 4. Các lệnh Git cơ bản của GitHub Flow
