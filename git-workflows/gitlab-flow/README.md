@@ -67,7 +67,7 @@ gitGraph
 
 ## 4. Đặc thù và Cách xử lý lệnh Git (Cho Release Driven)
 
-**1. Phát hành Version mới (Ví dụ Version 2.4.0)**
+### 1. Phát hành Version mới (Ví dụ Version 2.4.0)
 
 ```bash
 # Ở nhánh origin main (vẫn cập nhật tính năng mới liên tục)
@@ -84,7 +84,7 @@ git tag -a v2.4.0 -m "Release 2.4"
 git push origin 2-4-stable --tags
 ```
 
-**2. Vá nhanh 1 lỗi nguy cấp cho bản `2-4-stable`**
+### 2. Vá nhanh 1 lỗi nguy cấp cho bản `2-4-stable`
 
 ```bash
 # Developer bắt buộc cập nhật code mới, Sửa lỗi tạo ở MÁY CHỦ (Main)
